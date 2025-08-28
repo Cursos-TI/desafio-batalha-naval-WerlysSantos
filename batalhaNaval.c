@@ -13,16 +13,26 @@ int main() {
         }
     }
 
-    //loop para definir posição do barco Horizontal (Linha 9, Colunas B até D)
-    for (int j = 1; j <= 3; j++)
+    //loop aninhado para definir posição dos barcos Horizontais (Barco 1: Linha 5, Colunas B até D, Barco 2: Linha 7, Coluna G até I)
+    for (int i = 6; i <= 8; i++)
     {
-        tabuleiro[j][8] = 3;
+        for (int j = 1; j <= 3; j++)
+        {
+            tabuleiro[j][4] = 3;
+        }
+        
+        tabuleiro[i][6] = 3;
     }
 
-    //loop para definir posição do barco Vertical (Coluna D, linhas 2 até 4)  
-    for (int i = 1; i <= 3; i++)
+    //loop para definir posição dos barcos na Diagonal (Posição i iguais no array bidimensional. Posição j sempre em um lado somando e do outro diminuindo um cálculo que o resultado seja 9, que é a posição diagonal inversa do tabuleiro)  
+    for (int i = 0; i <= 2; i++)
     {
-        tabuleiro[3][i] = 3;
+        for (int j = 0; j <= 2; j++)
+        {
+            tabuleiro[3+j][6-j] = 3;
+        }
+        
+        tabuleiro[i][i] = 3;
     }
 
     //imprimindo o tabuleiro, com título indicativo
